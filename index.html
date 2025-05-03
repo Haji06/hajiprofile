@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cool Profile</title>
+    <style>
+        /* โทนสีดำและฟิมะตก */
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        /* เอฟเฟกต์ฟิมะตก */
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1DB954;
+            box-shadow: 0 0 20px rgba(29, 185, 84, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0 10px;
+            background: linear-gradient(45deg, #1DB954, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #1DB954;
+            transform: translateY(-3px);
+        }
+        /* Spotify Player */
+        
+        .spotify-section {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid #333;
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+        }
+        
+        .spotify-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .spotify-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .spotify-title {
+            font-size: 1.5em;
+            color: #1DB954;
+        }
+        
+        .spotify-player {
+            width: 100%;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        /* ส่วนเนื้อหา */
+        
+        .content-section {
+            background: rgba(18, 18, 18, 0.6);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid #333;
+        }
+        
+        h2 {
+            color: #1DB954;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        /* เอฟเฟกต์พิเศษ */
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(29, 185, 84, 0.7);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- เอฟเฟคกากๆ -->
+    <div class="particles" id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <img src="imge/494571875_1349515656322724_9108351716235575439_n (1).jpg" alt="Profile Picture" class="profile-pic floating">
+            <h1 class="glow">! Андре́й</h1>
+            <p class="tagline">รักแมวไม่แซวสาวก็เหมือนรักคุณไม่แซวใคร</p>
+
+            <div class="social-links">
+                <a href="https://web.facebook.com/ha.ji.545378?locale=th_TH"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/haji_18_06/"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/jangwadcommunity"><i class="fab fa-discord"></i></a>
+
+            </div>
+        </header>
+
+        <!-- Spotify Player -->
+        <div class="spotify-section">
+            <div class="spotify-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png" alt="Spotify" class="spotify-logo">
+                <h3 class="spotify-title">เพลงโปรดของผม</h3>
+            </div>
+            <iframe src="https://open.spotify.com/embed/track/1Ff3rMF5eukXiTBbcd0qOT?utm_source=generator" class="spotify-player" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+
+        <!-- เกี่ยวกับฉัน -->
+        <div class="content-section">
+            <h2>เกี่ยวกับตัวผม</h2>
+            <p>ไม่มีอะกดเข้ามาทำไม</p>
+        </div>
+
+        <!-- ทักษะ -->
+        <div class="content-section">
+            <h2>Skills.</h2>
+            <p>เขียนโค้ดได้นิดหน่อย แต่อยากเขียน</p>
+        </div>
+    </div>
+
+    <!-- สคริปต์กากๆ -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // ตั้งค่า
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#1DB954"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#1DB954",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // เพิ่ม Spotify 
+        function updateSpotifyPlayer(trackId) {
+            const iframe = document.querySelector('.spotify-player');
+            iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
+        }
+    </script>
+
+</body>
+
+</html>
