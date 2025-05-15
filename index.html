@@ -4,171 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คอนแท็ค</title>
+    <title>คอนแทค/ig/fb/discord</title>
     <style>
-        /* สไตล์พื้นฐาน */
+        /* โทนสีดำและฟิมะตก */
         
         body {
             margin: 0;
             padding: 0;
             font-family: 'Kanit', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #000;
+            color: #fff;
             overflow-x: hidden;
         }
-        /* สไตล์สำหรับอนิเมชั่นดาวตก */
+        /* เอฟเฟกต์ฟิมะตก */
         
-        .shooting-star {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
-            animation: shooting 3s linear infinite;
-            opacity: 0;
-        }
-        
-        @keyframes shooting {
-            0% {
-                transform: translateX(0) translateY(0) rotate(45deg);
-                opacity: 1;
-            }
-            70% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(1000px) translateY(-300px) rotate(45deg);
-                opacity: 0;
-            }
-        }
-        /* สไตล์ปุ่มเข้าสู่เว็บ */
-        
-        .enter-button {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            background: linear-gradient(45deg, #7700ff, #ff78a9);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 0 20px rgba(247, 0, 255, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        .enter-button:hover {
-            transform: translate(-50%, -50%) scale(1.05);
-            box-shadow: 0 0 30px rgba(191, 0, 255, 0.8);
-        }
-        /* สไตล์ส่วนหัว */
-        
-        header {
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #333;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .profile-pic:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        /* สไตล์ส่วนเนื้อหา */
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-        }
-        
-        .show-content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .section {
-            margin-bottom: 60px;
-            background: rgba(30, 30, 30, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-        }
-        /* สไตล์ Spotify Embed */
-        
-        .spotify-embed {
-            margin: 30px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            transition: all 0.3s ease;
-        }
-        
-        .spotify-embed:hover {
-            transform: scale(1.02);
-        }
-        /* สไตล์ฟุตเตอร์ */
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            margin-top: 50px;
-        }
-        /* สไตล์สำหรับหน้าโหลด */
-        
-        .loading-screen {
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            transition: opacity 1s ease;
+            z-index: -1;
+            pointer-events: none;
         }
         
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.1);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border-top-color: #e52e71;
-            animation: spin 1s ease-in-out infinite;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 20px #feffff;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0 10px;
+            background: linear-gradient(45deg, #ffffff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-bottom: 30px;
         }
         
         .social-links {
@@ -188,43 +80,93 @@
             color: #94c7ea;
             transform: translateY(-3px);
         }
+        /* Spotify Player */
         
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
+        .spotify-section {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid #333;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.773);
+        }
+        
+        .spotify-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .spotify-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .spotify-title {
+            font-size: 1.5em;
+            color: rgb(255, 255, 255);
+        }
+        
+        .spotify-player {
+            width: 100%;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        /* ส่วนเนื้อหา */
+        
+        .content-section {
+            background: rgba(18, 18, 18, 0.6);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid #333;
+        }
+        
+        h2 {
+            color: #ffffff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        /* เอฟเฟกต์พิเศษ */
+        
+        .glow {
+            text-shadow: 0 0 10px rgb(255, 255, 255);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
             }
         }
         
-        .social-links a {
-            color: white;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
-    <!-- ลิงก์ฟอนต์ Kanit (ฟอนต์ไทยที่ทันสมัย) -->
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome สำหรับไอคอน -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <!-- หน้าโหลด -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-spinner"></div>
-    </div>
+    <!-- เอฟเฟคกากๆ -->
+    <div class="particles" id="particles-js"></div>
 
-    <!-- ปุ่มเข้าสู่เว็บ -->
-    <button class="enter-button" id="enterButton">Click or Enter <i class="fas fa-arrow-right"></i></button>
-
-    <!-- อนิเมชั่นดาวตกจะถูกสร้างด้วย JavaScript -->
-
-    <!-- เนื้อหาหลัก (ซ่อนไว้จนกว่าจะกดปุ่ม) -->
-    <div id="mainContent" style="display: none;">
+    <div class="container">
         <header>
-            <!-- รูปโปรไฟล์ -->
             <img src="imge/9cef52ce27ab97e0fa9cfac1cdc1007f.gif" alt="Profile Picture" class="profile-pic floating">
-            <h1>Hi I'm zero</h1>
-            <p>Department of Digital Business Technology.</p>
+            <h1 class="glow">Hi I'm Zero</h1>
+            <p class="tagline">Department of Digital Business Technology.</p>
+            <p class="tagline">DEV/UX/UI</p>
+
             <div class="social-links">
                 <a href="https://web.facebook.com/ha.ji.545378?locale=th_TH"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/haji_18_06/"><i class="fab fa-instagram"></i></a>
@@ -233,110 +175,145 @@
             </div>
         </header>
 
-        <div class="container" id="contentContainer">
-            <section class="section">
-                <h2><i class="fas fa-user"></i> เกี่ยวกับผม</h2>
-                <p>ชื่อ เป้ง อายุ19 อยู่แผนกเทคโนโลยีธุรกิจดิจิทัล ขอบคุณที่กดเข้ามาส่อง</p>
-            </section>
-
-            <section class="section">
-                <h2><i class="fas fa-code"></i> ทักษะของผม</h2>
-                <p> นอน </p>
-            </section>
-
-
-            <section class="section">
-                <h2><i class="fab fa-spotify"></i> เพลงที่ชอบ</h2>
-                <p>เพลงที่ชอบ</p>
-                <!-- Spotify Embed -->
-                <div class="spotify-embed">
-                    <iframe src="https://open.spotify.com/embed/track/52h8p62Jx8KzQynM6heq7n?utm_source=generator" width="100%" height="200" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                </div>
-
-            </section>
+        <!-- Spotify Player -->
+        <div class="spotify-section">
+            <div class="spotify-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png" alt="Spotify" class="spotify-logo">
+                <h3 class="spotify-title">เพลงที่ผมชอบฟัง</h3>
+            </div>
+            <iframe src="https://open.spotify.com/embed/playlist/3YskxlG9kGBfwOZbrSewIH?utm_source=generator" class="spotify-player" frameborder="100" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
 
-        <footer>
-            <p>by Zero</p>
-        </footer>
+        <!-- เกี่ยวกับฉัน -->
+        <div class="content-section">
+            <h2>เกี่ยวกับตัวผม</h2>
+            <p>ชื่อ เป้ง อายุ19 อยู่แผนกคอมพิวเตอร์ธุรกิจดิจิทัล ขอบคุณที่กดเข้ามาส่อง...</p>
+        </div>
+
+        <!-- ทักษะ -->
+        <div class="content-section">
+            <h2>Skills.</h2>
+            <p>I'm a Beginner Dev Html Css Js </p>
+        </div>
     </div>
 
+    <!-- สคริปต์กากๆ -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // สร้างอนิเมชั่นดาวตก
-        function createShootingStars() {
-            const container = document.body;
-            const starCount = 15;
-
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'shooting-star';
-
-                // ตำแหน่งเริ่มต้นแบบสุ่ม
-                const startX = Math.random() * window.innerWidth;
-                const startY = Math.random() * window.innerHeight;
-
-                // กำหนดตำแหน่งและดีเลย์แบบสุ่ม
-                star.style.left = `${startX}px`;
-                star.style.top = `${startY}px`;
-                star.style.animationDelay = `${Math.random() * 5}s`;
-
-                container.appendChild(star);
-            }
-        }
-
-        // ฟังก์ชันสำหรับปุ่มเข้าสู่เว็บ
-        function setupEnterButton() {
-            const enterButton = document.getElementById('enterButton');
-            const mainContent = document.getElementById('mainContent');
-            const loadingScreen = document.getElementById('loadingScreen');
-            const contentContainer = document.getElementById('contentContainer');
-
-            enterButton.addEventListener('click', function() {
-
-                // ซ่อนปุ่ม
-                enterButton.style.display = 'none';
-
-                // แสดงหน้าโหลด
-                loadingScreen.style.display = 'flex';
-
-                // ลดความทึบของหน้าโหลดหลังจาก 1 วินาที
-                setTimeout(() => {
-                    loadingScreen.style.opacity = '0';
-
-                    // ซ่อนหน้าโหลดและแสดงเนื้อหาหลังจาก animation เสร็จ
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                        mainContent.style.display = 'block';
-
-                        // แสดงเนื้อหาด้วย animation
-                        setTimeout(() => {
-                            contentContainer.classList.add('show-content');
-                        }, 100);
-
-                        // สร้างดาวตกหลังจากเนื้อหาแสดงแล้ว
-                        createShootingStars();
-                    }, 1000);
-                }, 1500);
-            });
-        }
-
-        // เรียกฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จ
-        window.addEventListener('load', function() {
-            // ซ่อนหน้าโหลดหลังจากโหลดเสร็จ
-            setTimeout(() => {
-                document.getElementById('loadingScreen').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('loadingScreen').style.display = 'none';
-                }, 1000);
-            }, 1000);
-
-            // ตั้งค่าปุ่มเข้าสู่เว็บ
-            setupEnterButton();
-
-            // ตั้งค่ารูปโปรไฟล์ (สามารถเปลี่ยนเป็นรูปของคุณ)
-            document.getElementById('profilePic').src = 'https://via.placeholder.com/200';
+        // ตั้งค่า
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
         });
+
+        // เพิ่ม Spotify 
+        function updateSpotifyPlayer(trackId) {
+            const iframe = document.querySelector('.spotify-player');
+            iframe.src = `https://open.spotify.com/embed/track/${trackId}`;
+        }
     </script>
+
 </body>
 
 </html>
