@@ -6,6 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>คอนแทค/ig/fb/discord</title>
     <style>
+        /* สไตล์หน้าเริ่มต้น */
+        
+        .entry-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 1s ease;
+        }
+        
+        .entry-screen h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .entry-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ffffff, #94c7ea);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        .entry-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
         /* โทนสีดำและฟิมะตก */
         
         body {
@@ -213,9 +253,14 @@
 </head>
 
 <body>
+    <!-- หน้าเริ่มต้น -->
+    <div class="entry-screen" id="entryScreen">
+        <button class="entry-btn" id="entryBtn">Click or enter...</button>
+    </div>
+
     <!-- วิดีโอพื้นหลัง -->
     <div class="video-background">
-        <video id="bg-video" autoplay loop>
+        <video id="bg-video" autoplay loop muted>
             <!-- เปลี่ยนเป็นลิงก์วิดีโอของคุณ -->
             <source src="imge/tikmate.app_7496543529309670663_hd.mp4" type="video/mp4">
             <!-- ถ้าเบราว์เซอร์ไม่รองรับวิดีโอ -->
@@ -246,15 +291,43 @@
         </header>
 
         <script>
-            // ควบคุมเสียงวิดีโอ
+            // ตัวแปรสำหรับหน้าเริ่มต้น
+            const entryScreen = document.getElementById('entryScreen');
+            const entryBtn = document.getElementById('entryBtn');
             const video = document.getElementById('bg-video');
             const volumeControl = document.getElementById('volume-control');
             let isMuted = true;
 
-            // เริ่มต้นด้วยเสียงปิด
-            video.muted = true;
+            // ฟังก์ชันสำหรับเข้าสู่เว็บไซต์
+            function enterWebsite() {
+                // ค่อยๆ จางหายไป
+                entryScreen.style.opacity = '0';
 
-            // ปุ่มควบคุมเสียง
+                // ลบหน้าเริ่มต้นหลังจากจบ animation
+                setTimeout(() => {
+                    entryScreen.style.display = 'none';
+
+                    // เล่นเสียงวิดีโอทันที
+                    video.muted = false;
+                    isMuted = false;
+                    volumeControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+
+                    // พยายามเล่นวิดีโออีกครั้ง
+                    video.play().catch(e => console.log("Video play error:", e));
+                }, 1000);
+            }
+
+            // เมื่อคลิกปุ่ม
+            entryBtn.addEventListener('click', enterWebsite);
+
+            // เมื่อกดปุ่ม Enter
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    enterWebsite();
+                }
+            });
+
+            // ควบคุมเสียงวิดีโอ
             volumeControl.addEventListener('click', function() {
                 isMuted = !isMuted;
                 video.muted = isMuted;
@@ -264,13 +337,6 @@
                 } else {
                     volumeControl.innerHTML = '<i class="fas fa-volume-up"></i>';
                 }
-            });
-
-            // ตรวจสอบและเล่นวิดีโอเมื่อเพจโหลดเสร็จ
-            document.addEventListener('DOMContentLoaded', function() {
-                video.play().catch(error => {
-                    console.log("Autoplay was prevented. Showing play button instead.");
-                });
             });
 
             // เคอร์เซอร์แบบกำหนดเอง
@@ -287,8 +353,8 @@
                 snowflake.className = 'snowflake';
 
                 // ขนาดและความโปร่งใสแบบสุ่ม
-                const size = Math.random() * 10 + 5; // ขนาด 5-15px
-                const opacity = Math.random() * 0.7 + 0.3; // ความโปร่งใส 0.3-1
+                const size = Math.random() * 10 + 5;
+                const opacity = Math.random() * 0.7 + 0.3;
 
                 snowflake.style.width = `${size}px`;
                 snowflake.style.height = `${size}px`;
@@ -299,11 +365,11 @@
                 snowflake.style.top = '-20px';
 
                 // ความเร็วการตกแบบสุ่ม
-                const animationDuration = Math.random() * 5 + 3; // 3-8 วินาที
+                const animationDuration = Math.random() * 5 + 3;
                 snowflake.style.animationDuration = `${animationDuration}s`;
 
                 // การแกว่งไปมาแบบสุ่ม
-                const sway = Math.random() * 50 - 25; // -25px ถึง 25px
+                const sway = Math.random() * 50 - 25;
                 snowflake.style.transform = `translateX(${sway}px)`;
 
                 document.body.appendChild(snowflake);
