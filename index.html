@@ -262,7 +262,7 @@
     <div class="video-background">
         <video id="bg-video" autoplay loop muted>
             <!-- เปลี่ยนเป็นลิงก์วิดีโอของคุณ -->
-            <source src="imge/tikmate.app_7496543529309670663_hd.mp4" type="video/mp4">
+            <source src="imge/tikmate.app_7494762459786513686_hd.mp4" type="video/mp4">
             <!-- ถ้าเบราว์เซอร์ไม่รองรับวิดีโอ -->
             Your browser does not support the video tag.
         </video>
@@ -345,49 +345,6 @@
             document.addEventListener('mousemove', (e) => {
                 customCursor.style.left = e.clientX + 'px';
                 customCursor.style.top = e.clientY + 'px';
-            });
-
-            // เอฟเฟกต์หิมะตก
-            function createSnowflake() {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-
-                // ขนาดและความโปร่งใสแบบสุ่ม
-                const size = Math.random() * 10 + 5;
-                const opacity = Math.random() * 0.7 + 0.3;
-
-                snowflake.style.width = `${size}px`;
-                snowflake.style.height = `${size}px`;
-                snowflake.style.opacity = opacity;
-
-                // ตำแหน่งเริ่มต้นแบบสุ่มที่ด้านบน
-                snowflake.style.left = Math.random() * window.innerWidth + 'px';
-                snowflake.style.top = '-20px';
-
-                // ความเร็วการตกแบบสุ่ม
-                const animationDuration = Math.random() * 5 + 3;
-                snowflake.style.animationDuration = `${animationDuration}s`;
-
-                // การแกว่งไปมาแบบสุ่ม
-                const sway = Math.random() * 50 - 25;
-                snowflake.style.transform = `translateX(${sway}px)`;
-
-                document.body.appendChild(snowflake);
-
-                // ลบออกหลังจากตกหมด
-                setTimeout(() => {
-                    snowflake.remove();
-                }, animationDuration * 1000);
-            }
-
-            // สร้างหิมะทุกๆ 100 มิลลิวินาที
-            setInterval(createSnowflake, 100);
-
-            // สร้างหิมะจำนวนมากทันทีเมื่อโหลดหน้าเว็บ
-            window.addEventListener('load', () => {
-                for (let i = 0; i < 50; i++) {
-                    setTimeout(createSnowflake, i * 100);
-                }
             });
         </script>
     </div>
