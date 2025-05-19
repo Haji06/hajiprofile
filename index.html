@@ -4,7 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>คอนแทค/ig/fb/discord</title>
+    <title>ช่องทางการติดต่อ</title>
+
+    <script>
+        //   ส่วน title
+
+
+        const titleElement = document.querySelector('title');
+        const fullTitle = "ช่องทางการติดต่อ"; // ข้อความเต็มที่จะพิมพ์
+        let charIndex = 0;
+
+        function typeTitle() {
+            if (charIndex < fullTitle.length) {
+                titleElement.textContent = fullTitle.substring(0, charIndex + 1);
+                charIndex++;
+                // พิมพ์ตัวอักษรต่อไปทุกๆ 150 มิลลิวินาที (ปรับความเร็วได้)
+                setTimeout(typeTitle, 150);
+            } else {
+                // เมื่อพิมพ์ครบแล้ว ให้รอสักครู่แล้วเริ่มใหม่
+                setTimeout(() => {
+                    charIndex = 0;
+                    typeTitle();
+                }, 1500); // รอ 1.5 วินาทีก่อนเริ่มพิมพ์ใหม่
+            }
+        }
+
+        // เริ่มการพิมพ์เมื่อโหลดหน้าเว็บ
+        typeTitle();
+    </script>
+
+
     <style>
         /* สไตล์หน้าเริ่มต้น */
         
@@ -357,9 +386,9 @@
     </div>
 
     <!-- ปุ่มควบคุมเสียง -->
-    <div class="volume-control" id="volume-control">
+    <!--div class="volume-control" id="volume-control">
         <i class="fas fa-volume-mute"></i>
-    </div>
+    </div-->
 
     <div class="container">
         <header>
